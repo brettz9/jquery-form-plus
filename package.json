@@ -28,6 +28,7 @@
   },
   "scripts": {
     "lint": "eslint --report-unused-disable-directives .",
+    "test:node": "mocha test/test.js --require chai/register-assert --require test/node/bootstrap.js",
     "test": "grunt test"
   },
   "engines": {

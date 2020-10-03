@@ -685,7 +685,6 @@ describe('form', function() {
 		}
 	});
 
-	// eslint-disable-next-line max-statements
 	it('fieldValue(false)', function() {
 		assert.ok($('#fieldTest input').fieldValue(false)[0] === '5', 'input');
 		assert.ok($('#fieldTest :input').fieldValue(false)[0] === '1', ':input');

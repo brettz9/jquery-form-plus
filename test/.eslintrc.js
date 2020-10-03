@@ -7,6 +7,9 @@ module.exports = {
 		mocha   : true,
 		node    : true
 	},
+	globals : {
+		assert : true
+	},
 	parserOptions : {
 		ecmaVersion : 2015,
 		sourceType  : 'script'

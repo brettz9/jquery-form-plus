@@ -217,6 +217,7 @@
 	<script src="../node_modules/mocha/mocha.js"></script>
 	<script src="../node_modules/chai/chai.js"></script>
 	<script>
+		window.assert = chai.assert;
 		// This will be overridden by mocha-helper if you run with grunt
 		mocha.setup('bdd');
 		mocha.reporter('html');

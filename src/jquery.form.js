@@ -38,7 +38,7 @@
 					jQuery = require('jquery');
 				}
 			}
-			factory(jQuery);
+			factory(jQuery, root);
 
 			return jQuery;
 		};
@@ -47,7 +47,7 @@
 		factory(jQuery);
 	}
 
-}(function ($) {
+}(function ($, root) {
 	/* eslint-enable strict, max-statements */
 	'use strict';
 
@@ -100,13 +100,16 @@
 		return {}.hasOwnProperty.call(obj, prop);
 	};
 
+	const win = root || window;
+	const nav = (root && root.navigator) || navigator;
+
 	/**
 	 * Feature detection
 	 */
 	const feature = {};
 
 	feature.fileapi = $('<input type="file">').get(0).files !== undefined;
-	feature.formdata = typeof window.FormData !== 'undefined';
+	feature.formdata = typeof win.FormData !== 'undefined';
 
 	const hasProp = !!$.fn.prop;
 
@@ -172,15 +175,15 @@
 
 		let url = typeof action === 'string' ? $.trim(action) : '';
 
-		url = url || window.location.href || '';
+		url = url || win.location.href || '';
 		if (url) {
 			// clean url (don't include hash vaue)
 			url = (url.match(/^([^#]+)/) || [])[1];
 		}
 		// IE requires javascript:false in https, but this breaks chrome >83 and goes against spec.
 		// Instead of using javascript:false always, let's only apply it for IE.
-		const isMsie = /(MSIE|Trident)/.test(navigator.userAgent || '');
-		const iframeSrc = isMsie && /^https/i.test(window.location.href || '') ? 'javascript:false' : 'about:blank'; // eslint-disable-line no-script-url
+		const isMsie = /(MSIE|Trident)/.test(nav.userAgent || '');
+		const iframeSrc = isMsie && /^https/i.test(win.location.href || '') ? 'javascript:false' : 'about:blank'; // eslint-disable-line no-script-url
 
 		options = $.extend(true, {
 			iframeSrc : iframeSrc,
@@ -748,7 +751,7 @@
 			}
 
 			const toXml = $.parseXML || function(str, docum) { // use parseXML if available (jQuery 1.5+)
-				if (window.ActiveXObject) {
+				if (win.ActiveXObject) {
 					docum = new ActiveXObject('Microsoft.XMLDOM');
 					docum.async = 'false';
 					docum.loadXML(str);
@@ -813,7 +816,7 @@
 
 					log('isXml=' + isXml);
 
-					if (!isXml && window.opera && (doc.body === null || !doc.body.innerHTML)) {
+					if (!isXml && win.opera && (doc.body === null || !doc.body.innerHTML)) {
 						if (--domCheckCount) {
 							// in some browsers (Opera) the iframe DOM is not always traversable when
 							// the onload callback fires, so we loop a bit to accommodate
@@ -958,7 +961,7 @@
 			}
 
 			const parseJSON = $.parseJSON || function(str) {
-				return window['eval']('(' + str + ')');			// eslint-disable-line dot-notation
+				return win['eval']('(' + str + ')');			// eslint-disable-line dot-notation
 			};
 
 			httpData = function(xhr$, type, settngs) { // mostly lifted from jq1.4.4
@@ -1149,7 +1152,7 @@
 
 		// #386; account for inputs outside the form which use the 'form' attribute
 		// FinesseRus: in non-IE browsers outside fields are already included in form.elements.
-		if (formId && (semantic || /(Edge|Trident)\//.test(navigator.userAgent))) {
+		if (formId && (semantic || /(Edge|Trident)\//.test(nav.userAgent))) {
 			const els2 = $(':input[form="' + formId + '"]').get(); // hat tip @thet
 
 			if (els2.length) {
@@ -1421,7 +1424,7 @@
 				this.selectedIndex = -1;
 
 			} else if (type === 'file') {
-				if (/MSIE/.test(navigator.userAgent)) {
+				if (/MSIE/.test(nav.userAgent)) {
 					$(this).replaceWith($(this).clone(true));
 				} else {
 					$(this).val('');
@@ -1575,11 +1578,11 @@
 
 		const msg = '[jquery.form] ' + Array.prototype.join.call(arguments, '');
 
-		if (window.console && window.console.log) {
-			window.console.log(msg);
+		if (win.console && win.console.log) {
+			win.console.log(msg);
 
-		} else if (window.opera && window.opera.postError) {
-			window.opera.postError(msg);
+		} else if (win.opera && win.opera.postError) {
+			win.opera.postError(msg);
 		}
 	}
 }));

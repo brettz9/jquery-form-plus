@@ -1,5 +1,4 @@
-/* global chai, scriptCount */
-
+/* globals scriptCount */
 'use strict';
 
 // helper method
@@ -27,7 +26,6 @@ const arrayValue = function(arr, key) {
 };
 
 
-const {assert} = chai;
 let fixture;
 
 // eslint-disable-next-line max-statements
@@ -103,7 +101,7 @@ describe('form', function() {
 		const ser = $('#form1').formSerialize();
 		const expectedStringArrayLength = 13;
 
-		assert.instanceOf(ser, String, 'type check');
+		assert.typeOf(ser, 'string', 'type check');
 		assert.ok(ser.split('&').length === expectedStringArrayLength, 'string array length');
 	});
 
@@ -112,7 +110,7 @@ describe('form', function() {
 		const ser = $('#pseudo *').fieldSerialize();
 		const expectedStringArrayLength = 3;
 
-		assert.instanceOf(ser, String, 'type check');
+		assert.typeOf(ser, 'string', 'type check');
 		assert.ok(ser.split('&').length === expectedStringArrayLength, 'string array length');
 	});
 

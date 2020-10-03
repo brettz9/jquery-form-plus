@@ -102,7 +102,7 @@ describe('form', function() {
 		const expectedStringArrayLength = 13;
 
 		assert.typeOf(ser, 'string', 'type check');
-		assert.ok(ser.split('&').length === expectedStringArrayLength, 'string array length');
+		assert.lengthOf(ser.split('&'), expectedStringArrayLength, 'string array length');
 	});
 
 	// test support for input elements not contained within a form
@@ -111,7 +111,7 @@ describe('form', function() {
 		const expectedStringArrayLength = 3;
 
 		assert.typeOf(ser, 'string', 'type check');
-		assert.ok(ser.split('&').length === expectedStringArrayLength, 'string array length');
+		assert.lengthOf(ser.split('&'), expectedStringArrayLength, 'string array length');
 	});
 
 
@@ -435,7 +435,7 @@ describe('form', function() {
 				const expectedLength = 3;
 
 				assert.ok(typeof responseXML === 'object', 'data type xml');
-				assert.ok($('test', responseXML).length === expectedLength, 'xml data query');
+				assert.lengthOf($('test', responseXML), expectedLength, 'xml data query');
 				// start();
 			},
 			url : 'ajax/test.xml'
@@ -672,14 +672,14 @@ describe('form', function() {
 		let expected = ['8', '10'];
 		let result = $('#fieldTest :checkbox').fieldValue(true);
 
-		assert.ok(result.length === expected.length, 'result size check (checkbox): ' + result.length + '=' + expected.length);
+		assert.lengthOf(result, expected.length, 'result size check (checkbox): ' + result.length + '=' + expected.length);
 		for (let i = 0; i < result.length; i++) {
 			assert.ok(result[i] === expected[i], expected[i]);
 		}
 
 		expected = ['3', '4'];
 		result = $('#fieldTest [name=B]').fieldValue(true);
-		assert.ok(result.length === expected.length, 'result size check (select-multiple): ' + result.length + '=' + expected.length);
+		assert.lengthOf(result, expected.length, 'result size check (select-multiple): ' + result.length + '=' + expected.length);
 		for (let i = 0; i < result.length; i++) {
 			assert.ok(result[i] === expected[i], expected[i]);
 		}
@@ -696,21 +696,21 @@ describe('form', function() {
 		let expected = ['8', '9', '10'];
 		let result = $('#fieldTest :checkbox').fieldValue(false);
 
-		assert.ok(result.length === expected.length, 'result size check (checkbox): ' + result.length + '=' + expected.length);
+		assert.lengthOf(result, expected.length, 'result size check (checkbox): ' + result.length + '=' + expected.length);
 		for (let i = 0; i < result.length; i++) {
 			assert.ok(result[i] === expected[i], expected[i]);
 		}
 
 		expected = ['11', '12', '13'];
 		result = $('#fieldTest :radio').fieldValue(false);
-		assert.ok(result.length === expected.length, 'result size check (radio): ' + result.length + '=' + expected.length);
+		assert.lengthOf(result, expected.length, 'result size check (radio): ' + result.length + '=' + expected.length);
 		for (let i = 0; i < result.length; i++) {
 			assert.ok(result[i] === expected[i], expected[i]);
 		}
 
 		expected = ['3', '4'];
 		result = $('#fieldTest [name=B]').fieldValue(false);
-		assert.ok(result.length === expected.length, 'result size check (select-multiple): ' + result.length + '=' + expected.length);
+		assert.lengthOf(result, expected.length, 'result size check (select-multiple): ' + result.length + '=' + expected.length);
 		for (let i = 0; i < result.length; i++) {
 			assert.ok(result[i] === expected[i], expected[i]);
 		}
@@ -723,7 +723,7 @@ describe('form', function() {
 
 		result = result.split('&');
 
-		assert.ok(result.length === expected.length, 'result size check: ' + result.length + '=' + expected.length);
+		assert.lengthOf(result, expected.length, 'result size check: ' + result.length + '=' + expected.length);
 		for (let i = 0; i < result.length; i++) {
 			assert.ok(result[i] === expected[i], expected[i] + ' = ' + result[i]);
 		}
@@ -736,7 +736,7 @@ describe('form', function() {
 
 		result = result.split('&');
 
-		assert.ok(result.length === expected.length, 'result size check: ' + result.length + '=' + expected.length);
+		assert.lengthOf(result, expected.length, 'result size check: ' + result.length + '=' + expected.length);
 		for (let i = 0; i < result.length; i++) {
 			assert.ok(result[i] === expected[i], expected[i] + ' = ' + result[i]);
 		}
@@ -749,7 +749,7 @@ describe('form', function() {
 
 		result = result.split('&');
 
-		assert.ok(result.length === expected.length, 'result size check: ' + result.length + '=' + expected.length);
+		assert.lengthOf(result, expected.length, 'result size check: ' + result.length + '=' + expected.length);
 		for (let i = 0; i < result.length; i++) {
 			assert.ok(result[i] === expected[i], expected[i] + ' = ' + result[i]);
 		}
@@ -762,7 +762,7 @@ describe('form', function() {
 
 		result = result.split('&');
 
-		assert.ok(result.length === expected.length, 'result size check: ' + result.length + '=' + expected.length);
+		assert.lengthOf(result, expected.length, 'result size check: ' + result.length + '=' + expected.length);
 		for (let i = 0; i < result.length; i++) {
 			assert.ok(result[i] === expected[i], expected[i] + ' = ' + result[i]);
 		}
@@ -775,7 +775,7 @@ describe('form', function() {
 
 		result = result.split('&');
 
-		assert.ok(result.length === expected.length, 'result size check: ' + result.length + '=' + expected.length);
+		assert.lengthOf(result, expected.length, 'result size check: ' + result.length + '=' + expected.length);
 		for (let i = 0; i < result.length; i++) {
 			assert.ok(result[i] === expected[i], expected[i] + ' = ' + result[i]);
 		}
@@ -788,7 +788,7 @@ describe('form', function() {
 
 		result = result.split('&');
 
-		assert.ok(result.length === expected.length, 'result size check: ' + result.length + '=' + expected.length);
+		assert.lengthOf(result, expected.length, 'result size check: ' + result.length + '=' + expected.length);
 		for (let i = 0; i < result.length; i++) {
 			assert.ok(result[i] === expected[i], expected[i] + ' = ' + result[i]);
 		}
@@ -801,7 +801,7 @@ describe('form', function() {
 
 		result = result.split('&');
 
-		assert.ok(result.length === expected.length, 'result size check: ' + result.length + '=' + expected.length);
+		assert.lengthOf(result, expected.length, 'result size check: ' + result.length + '=' + expected.length);
 		for (let i = 0; i < result.length; i++) {
 			assert.ok(result[i] === expected[i], expected[i] + ' = ' + result[i]);
 		}
@@ -814,7 +814,7 @@ describe('form', function() {
 
 		result = result.split('&');
 
-		assert.ok(result.length === expected.length, 'result size check: ' + result.length + '=' + expected.length);
+		assert.lengthOf(result, expected.length, 'result size check: ' + result.length + '=' + expected.length);
 		for (let i = 0; i < result.length; i++) {
 			assert.ok(result[i] === expected[i], expected[i] + ' = ' + result[i]);
 		}

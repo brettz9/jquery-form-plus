@@ -277,6 +277,8 @@
 				const fn = options.replaceTarget ? 'replaceWith' : 'html',
 					successArguments = arguments;
 
+				dta = $.parseHTML($('<div>').text(dta).html());
+
 				$(options.target)[fn](dta).each(function() {
 					oldSuccess.apply(this, successArguments);
 				});
@@ -961,7 +963,9 @@
 			}
 
 			const parseJSON = $.parseJSON || function(str) {
-				return win['eval']('(' + str + ')');			// eslint-disable-line dot-notation
+				console.error('jquery.parseJSON is undefined');
+
+				return null;
 			};
 
 			httpData = function(xhr$, type, settngs) { // mostly lifted from jq1.4.4

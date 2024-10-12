@@ -1,6 +1,6 @@
 {
   "name": "jquery-form-plus",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "The jQuery Form Plugin allows you to easily and unobtrusively upgrade HTML forms to use AJAX.",
   "keywords": [
     "jquery",
@@ -29,6 +29,7 @@
   },
   "scripts": {
     "start": "static-server",
+    "build": "grunt",
     "lint": "eslint --report-unused-disable-directives .",
     "mocha": "mocha test/test.js --require chai/register-assert --require test/node/bootstrap.js",
     "test": "nyc npm run mocha"

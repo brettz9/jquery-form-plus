@@ -25,16 +25,6 @@ module.exports = function(grunt) {
 			banner : '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd HH:MM:ss") %> */'
 		},
 
-		mocha : {
-			all : {
-				src : ['test/*.html']
-			},
-			options : {
-				growlOnSuccess : false,
-				run            : true
-			}
-		},
-
 		pkg : grunt.file.readJSON('package.json'),
 
 		// Minifies JS files
@@ -61,13 +51,12 @@ module.exports = function(grunt) {
 
 	// Load tasks
 	grunt.loadNpmTasks('grunt-contrib-uglify');
-	grunt.loadNpmTasks('grunt-mocha');
 	grunt.loadNpmTasks('grunt-eslint');
 	grunt.loadNpmTasks('grunt-githooks');
 
 	// Default task.
 	grunt.registerTask('lint', ['eslint']);
-	grunt.registerTask('test', ['lint', 'mocha']);
+	grunt.registerTask('test', ['lint']);
 	grunt.registerTask('pre-commit', ['test']);
 	grunt.registerTask('default', ['test', 'uglify']);
 };

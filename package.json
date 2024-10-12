@@ -1,6 +1,6 @@
 {
-  "name": "jquery-form",
-  "version": "4.3.0",
+  "name": "jquery-form-plus",
+  "version": "1.0.0",
   "description": "The jQuery Form Plugin allows you to easily and unobtrusively upgrade HTML forms to use AJAX.",
   "keywords": [
     "jquery",
@@ -13,9 +13,10 @@
     "jquery-form",
     "ecosystem:jquery"
   ],
-  "homepage": "https://github.com/jquery-form/form",
-  "bugs": "https://github.com/jquery-form/form/issues",
+  "homepage": "https://github.com/brettz9/jquery-form-plus",
+  "bugs": "https://github.com/brettz9/jquery-form-plus/issues",
   "license": "(LGPL-2.1+ OR MIT)",
+  "author": "Brett Zamir",
   "contributors": [
     "Mike Alsup",
     "Kevin Morris"
@@ -24,7 +25,7 @@
   "browser": "dist/jquery.form.min.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/jquery-form/form.git"
+    "url": "https://github.com/brettz9/jquery-form-plus.git"
   },
   "scripts": {
     "start": "static-server",

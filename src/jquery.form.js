@@ -2,13 +2,13 @@
  * jQuery Form Plugin
  * version: 4.3.0
  * Requires jQuery v1.7.2 or later
- * Project repository: https://github.com/jquery-form/form
+ * Project repository: https://github.com/brettz9/jquery-form-plus
 
  * Copyright 2017 Kevin Morris
  * Copyright 2006 M. Alsup
 
  * Dual licensed under the LGPL-2.1+ or MIT licenses
- * https://github.com/jquery-form/form#license
+ * https://github.com/brettz9/jquery-form-plus#license
 
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public

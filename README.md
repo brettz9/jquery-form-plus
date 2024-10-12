@@ -1,4 +1,13 @@
-# jQuery Form [![Build Status](https://travis-ci.org/jquery-form/form.svg?branch=master)](https://travis-ci.org/jquery-form/form)
+# jQuery Form Plus
+
+This is a fork of [jQuery form](https://github.com/jquery-form/form). It
+applies some security fixes.
+
+## Install
+
+```shell
+npm i jquery-form-plus
+```
 
 ## Overview
 The jQuery Form Plugin allows you to easily and unobtrusively upgrade HTML forms to use AJAX. The main methods, ajaxForm and ajaxSubmit, gather information from the form element to determine how to manage the submit process. Both of these methods support numerous options which allow you to have full control over how the data is submitted.
@@ -13,12 +22,12 @@ Please note that this project is released with a [Contributor Code of Conduct](C
 
 ### Pull Requests Needed
 #### Enhancements needed to to be fully compatible with jQuery 3
-jQuery 3 is removing a lot of features that have been deprecated for a long time. Some of these are still in use by jQuery Form.  
-Pull requests and assistance in updating jQuery Form to be compatible with jQuery 3 are greatly appreciated.  
+jQuery 3 is removing a lot of features that have been deprecated for a long time. Some of these are still in use by jQuery Form.
+Pull requests and assistance in updating jQuery Form to be compatible with jQuery 3 are greatly appreciated.
 See [issue #544](https://github.com/jquery-form/form/issues/544) for more information.
 
 ## Compatibility
-* Requires jQuery 1.7.2 or later.  
+* Requires jQuery 1.7.2 or later.
 * Compatible with jQuery 2.
 * Partially compatible with jQuery 3.
 * **Not** compatible with jQuery 3 Slim. ([issue #544](https://github.com/jquery-form/form/issues/544))
@@ -56,7 +65,7 @@ xhr.done(function() {
 ````
 
 ### ajaxForm( options )
-Prepares a form to be submitted via AJAX by adding all of the necessary event listeners. It does **not** submit the form. Use `ajaxForm` in your document's `ready` function to prepare existing forms for AJAX submission, or with the `delegation` option to handle forms not yet added to the DOM.  
+Prepares a form to be submitted via AJAX by adding all of the necessary event listeners. It does **not** submit the form. Use `ajaxForm` in your document's `ready` function to prepare existing forms for AJAX submission, or with the `delegation` option to handle forms not yet added to the DOM.
 Use ajaxForm when you want the plugin to manage all the event binding for you.
 
 ````javascript
@@ -154,7 +163,7 @@ $('form').ajaxForm({
 ````
 
 ### error
-**Deprecated**  
+**Deprecated**
 Callback function to be invoked upon error.
 
 ### forceSync
@@ -183,7 +192,7 @@ Boolean flag indicating whether the form should be reset if the submit is succes
 Boolean flag indicating whether data must be submitted in strict semantic order (slower). Note that the normal form serialization is done in semantic order except for input elements of `type="image"`. You should only set the semantic option to true if your server has strict semantic requirements and your form contains an input element of `type="image"`.
 
 ### success
-**Deprecated**  
+**Deprecated**
 Callback function to be invoked after the form has been submitted. If a 'success' callback function is provided it is invoked after the response has been returned from the server. It is passed the following standard jQuery arguments:
 
 1. `data`, formatted according to the dataType parameter or the dataFilter callback function, if specified
@@ -195,7 +204,7 @@ Callback function to be invoked after the form has been submitted. If a 'success
 Identifies the element(s) in the page to be updated with the server response. This value may be specified as a jQuery selection string, a jQuery object, or a DOM element.
 
 ### type
-The HTTP method to use for the request (e.g. 'POST', 'GET', 'PUT').  
+The HTTP method to use for the request (e.g. 'POST', 'GET', 'PUT').
 An alias for `method` option. Overridden by the `method` value if both are present.
 
 ### uploadProgress
@@ -246,7 +255,7 @@ The Form Plugin supports the use of [XMLHttpRequest Level 2]("http://www.w3.org/
 ---
 
 ## Contributors
-This project has transferred from [github.com/malsup/form](https://github.com/malsup/form/), courtesy of [Mike Alsup](https://github.com/malsup).  
+This project has transferred from [github.com/malsup/form](https://github.com/malsup/form/), courtesy of [Mike Alsup](https://github.com/malsup).
 See [CONTRIBUTORS](CONTRIBUTORS.md) for details.
 
 ## License
